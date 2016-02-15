@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/estilos/style.css')
+  body
+    block content
+
+    script(src="/resources/jquery/dist/jquery.js")
+    script(src="/resources/bootstrap/dist/js/bootstrap.js")
+    script(src="/resources/jquery-form-validator/form-validator/jquery.form-validator.js")
+    script.
+       $.validate();

@@ -1,0 +1,8 @@
+{
+  "name": "Form validations",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery-form-validator": "~2.2.81"
+  }
+}

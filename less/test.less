@@ -1,0 +1,29 @@
+//Variables
+@color-principal: #000fff;
+@color-secundario: #987560;
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.secundario{
+  background: @color-secundario;
+  font-size: 40px;
+  margin: 20px;
+  padding: 20px;
+}
+.principal{
+  background: @color-principal;
+  padding: 10px;
+  .secundario{
+    background: @color-secundario;
+    color: #000fff;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+  }
+}
