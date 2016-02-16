@@ -11,3 +11,7 @@ html
     script(src="/resources/jquery-form-validator/form-validator/jquery.form-validator.js")
     script.
        $.validate();
+       $('#area').restrictLength($('#maxlength'));
+       $.validate({
+          modules : 'security'
+        });

@@ -93,10 +93,247 @@ block content
         input(data-validation='url')
       p
         input.btn.btn-success(type="submit")
+
+  // Default validators
+  h1 Lenght          
         
   form(action='/', method='POST')
       P
-        | Maximo 100 caracteres
+        | Máximo 100 carácteres
         input(type='text', data-validation='length', data-validation-length='max100')
       p
-        input.btn.btn-success(type="submit")  
+        input.btn.btn-success(type="submit")    
+
+  form(action='/', method='POST')        
+      p
+        | Mínimo 20 carácteres 
+        input(type='text', data-validation='length', data-validation-length='min20') 
+      p
+        input.btn.btn-success(type="submit")   
+
+  form(action='/', method='POST')      
+      p 
+        |Mínimo 50, máximo 200 carácteres
+        input(type='text', data-validation='length', data-validation-length='50-200')     
+      p
+        input.btn.btn-success(type="submit") 
+
+  form(action='/', method='POST')
+      p
+        |Seleccionar al menos 2 opciones
+      select(multiple='multiple', size='5', data-validation='length', data-validation-length='min2')
+            option A
+            option B
+            option C
+            option D
+            option E   
+      p
+        input.btn.btn-success(type="submit")       
+
+  h1 Numbers
+  
+  form(action='/', method='POST')
+      p
+        | Cualquier valor numérico
+        input(type='text', data-validation='number')
+      p
+        input.btn.btn-primary(type="submit") 
+
+  form(action='/', method='POST')
+      p
+        | Sólo valores float
+        input(type='text', data-validation='number', data-validation-allowing='float')
+      p
+        input.btn.btn-primary(type="submit") 
+  
+  form(action='/', method='POST')
+      p
+        | Floats y números negativos
+        input(type='text', data-validation='number', data-validation-allowing='float,negative')
+      p
+        input.btn.btn-primary(type="submit")
+
+  form(action='/', method='POST')
+      p
+        | Float con coma
+        input(type='text', data-validation='number', data-validation-allowing='float', data-validation-decimal-separator=',')
+      p
+        input.btn.btn-primary(type="submit") 
+
+  form(action='/', method='POST')
+      p
+        | Números del 1 al 100
+        input(type='text', data-validation='number', data-validation-allowing='range[1;100]')
+      p
+        input.btn.btn-primary(type="submit") 
+
+  form(action='/', method='POST')
+      p
+        | Números del -50 al 30
+        input(type='text', data-validation='number', data-validation-allowing='range[-50;30],negative')
+      p
+        input.btn.btn-primary(type="submit")
+
+  form(action='/', method='POST')
+      p
+        | Números del 0.05 al 0.5
+        input(type='text', data-validation='number', data-validation-allowing='range[0.05;0.5],float')
+      p
+        input.btn.btn-primary(type="submit")
+
+  
+  // Para definir el separador decimal cuando inicia la validación      
+          script.
+            $.validate({
+            decimalSeparator : ','
+            });   
+
+  h1 E-mail
+  
+  form(action='/', method='POST')
+      p
+        | Escribe tu e-mail
+        input(type='text', data-validation='email')
+      p
+        input.btn.btn-warning(type="submit")
+
+  h1 URL:s
+  
+  form(action='/', method='POST')
+      p
+        | Escribe tu sitio web
+        input(type='text', data-validation='url')
+      p
+        input.btn.btn-info(type="submit")
+
+  h1 Date
+  
+  form(action='/', method='POST')
+      p
+        | Fecha formato yyyy-mm-dd
+        input(type='text', data-validation='date')
+      p
+        input.btn.btn-danger(type="submit")
+
+  form(action='/', method='POST')
+      p
+        | Fecha formato dd/mm/yyyy
+        input(type='text', data-validation='date' data-validation-format='dd/mm/yyyy')
+      p
+        input.btn.btn-danger(type="submit")        
+
+  h1  Alphanumeric
+
+  form(action='/', method='POST')
+      p
+        | Letras de a-z y/o numeros
+        input(type='text', data-validation='alphanumeric')
+      p
+        input.btn.btn-danger(type="submit") 
+
+  form(action='/', method='POST')
+      p
+        | Letras de a-z y/o numeros y/o guines
+        input(type='text', data-validation='alphanumeric' data-validation-allowing='-_')
+      p
+        input.btn.btn-danger(type="submit")             
+
+  h1  Checkboxes group
+
+  form(action='/', method='POST')
+      p
+        | Checkboxes mín 1
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='min1')
+      p
+        input.btn.btn-danger(type="submit")
+
+  form(action='/', method='POST')
+      p
+        | Checkboxes max 3
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='max3')
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='max3')
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='max3')
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='max3')  
+      p
+        input.btn.btn-danger(type="submit") 
+
+  form(action='/', method='POST')
+      p
+        | Checkboxes max 3
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='1-4')
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='1-4')
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='1-4')
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='1-4')  
+        input(type='checkbox', name='newsletters[]', data-validation='checkbox_group', data-validation-qty='1-4')
+      p
+        input.btn.btn-danger(type="submit")  
+
+  h1 Count Down
+
+  form(action='/', method='POST')
+      p
+        | History (
+        span#maxlength 50
+        | characters left)
+        textarea#area(rows='3') 
+
+      p
+        input.btn.btn-danger(type="submit") 
+
+  h1 Make validation optional
+
+  form(action='/', method='POST')
+      p
+        | Sólo si es dado un valor (url)
+        input(type='text', data-validation='url', data-validation-optional='true') 
+      p
+        input.btn.btn-danger(type="submit")   
+
+  form(action='/', method='POST')
+      p
+        | Sólo si el checkbox es activado (url)
+        input(type='text', data-validation='url', data-validation-if-checked='some-checkbox')
+        input(type='checkbox', name='some-checkbox', value='1')
+      p
+        input.btn.btn-danger(type="submit")
+
+
+  h1 Display help text
+
+  form#some-form(action='')
+      p
+        strong Why not?
+        input(name='why', data-validation-help='Please give us some more information') 
+      p
+        input.btn.btn-danger(type="submit")
+
+  h1 Input suggestions
+  
+  form#some-form(action='')
+      p
+      | What's your favorite color?
+      input(name='color', data-suggestions='White, Green, Blue, Black, Brown')
+
+  // Security validators
+
+  h1 Password confirmation
+
+  form(action='/', method='POST')
+      p
+          | Password (at least 8 characters)
+          input(name='pass_confirmation', data-validation='length', data-validation-length='min8')
+          |   Confirm password
+          input(name='pass', data-validation='confirmation')
+      p
+        input.btn.btn-danger(type="submit")
+        
+  form(action='/', method='POST')
+      p
+          | E-mail
+          input(name='user-email', data-validation='email')
+          |   Repeat e-mail
+          input(name='repeat', data-validation='confirmation', data-validation-confirm='user-email')
+      p
+        input.btn.btn-danger(type="submit")            
+
+
